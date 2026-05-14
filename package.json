@@ -1,0 +1,27 @@
+{
+  "name": "trae-vue-theme",
+  "displayName": "Trae Vue Theme",
+  "description": "A Trae-friendly dark theme with strong Vue SFC section differentiation and semantic highlighting for template logic vs plain HTML.",
+  "version": "0.0.1",
+  "publisher": "sazha",
+  "icon": "icons/icon.png",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Trae Vue Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/trae-vue-dark.json"
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/<yourname>/<repo>.git"
+  }
+}
