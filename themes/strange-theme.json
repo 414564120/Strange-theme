@@ -19,8 +19,8 @@
 
     "editorIndentGuide.background": "#3A3D44",
     "editorIndentGuide.background1": "#3A3D44",
-    "editorIndentGuide.activeBackground": "#808080",
-    "editorIndentGuide.activeBackground1": "#808080",
+    "editorIndentGuide.activeBackground": "#FF5577",
+    "editorIndentGuide.activeBackground1": "#FF5577",
 
     "editorBracketPairGuide.background1": "#C792EA80",
     "editorBracketPairGuide.background2": "#FFD70080",
@@ -136,7 +136,7 @@
         "entity.other.attribute-name.html.vue",
         "text.html.vue entity.other.attribute-name.html.vue"
       ],
-      "settings": { "foreground": "#DCDCAA", "fontStyle": "bold" }
+      "settings": { "foreground": "#FF3366", "fontStyle": "bold" }
     },
     {
       "name": "Vue Directive Value Quotes",
@@ -197,7 +197,7 @@
         "text.html.vue entity.other.attribute-name.html",
         "text.html.basic entity.other.attribute-name"
       ],
-      "settings": { "foreground": "#9CDCFE" }
+      "settings": { "foreground": "#B0A896" }
     },
     {
       "name": "HTML Attribute Values (static)",
