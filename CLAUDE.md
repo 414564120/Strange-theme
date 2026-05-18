@@ -67,7 +67,7 @@ git push origin main
 3. `semanticTokenColors`（Volar 语言服务器 — 语义血肉层）
 4. 用户 `settings.json` 的 `textMateRules`（最终覆盖层）
 
-### TextMate tokenColors（14 条规则）
+### TextMate tokenColors（59 条规则）
 
 | 规则 | 负责内容 | 颜色 |
 |------|---------|------|
@@ -85,7 +85,7 @@ git push origin main
 | 内嵌 CSS | `<style>` 块内 CSS | `#B5CEA8` |
 | 等号分隔符 | `=` 号 | `#D5D8E0` |
 
-### Semantic tokenColors（25 条规则）
+### Semantic tokenColors（32 条规则）
 
 | 语义类型 | 颜色 | 样式 | 说明 |
 |---------|------|------|------|
