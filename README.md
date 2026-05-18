@@ -1,4 +1,4 @@
-# Strange Theme — Trae Vue Dark
+# Strange Theme
 
 专为 Vue SFC 开发优化的暗色主题，支持 **Trae**、**VS Code** 和 **Cursor** 编辑器。在保持暗色舒适观感的同时，通过三区块分层着色和语义高亮，让 Vue 模板中的逻辑代码与普通 HTML 一眼可辨。
 
@@ -50,7 +50,7 @@
 1. 打包：`pnpm dlx @vscode/vsce package`
 2. 在扩展面板中，点击 `...` → `Install from VSIX`，选择生成的 `.vsix`
 3. 或在 Cursor 中：`Ctrl+Shift+P` → `Extensions: Install from VSIX`
-4. `Ctrl+Shift+P` → `Preferences: Color Theme` → 选 `Trae Vue Dark`
+4. `Ctrl+Shift+P` → `Preferences: Color Theme` → 选 `Strange Theme`
 
 ## 文件结构
 
@@ -64,5 +64,5 @@ strange-theme/
 ├── icons/
 │   └── icon.png
 └── themes/
-    └── trae-vue-dark.json
+    └── strange-theme.json
 ```

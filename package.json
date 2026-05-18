@@ -1,6 +1,6 @@
 {
-  "name": "trae-vue-theme",
-  "displayName": "Trae Vue Theme",
+  "name": "strange-theme",
+  "displayName": "Strange Theme",
   "description": "A dark theme for VS Code & Cursor with Vue SFC section differentiation and semantic highlighting.",
   "version": "0.0.1",
   "publisher": "sazha",
@@ -21,9 +21,9 @@
   "contributes": {
     "themes": [
       {
-        "label": "Trae Vue Dark",
+        "label": "Strange Theme",
         "uiTheme": "vs-dark",
-        "path": "./themes/trae-vue-dark.json"
+        "path": "./themes/strange-theme.json"
       }
     ]
   },
