@@ -4,7 +4,7 @@
 
   "colors": {
     "editor.background": "#1A1B1D",
-    "editor.foreground": "#D1D3DB",
+    "editor.foreground": "#E8E0D4",
     "editorCursor.foreground": "#FFFFFF",
     "editor.selectionBackground": "#3579FF47",
     "editor.lineHighlightBackground": "#292c34",
@@ -17,10 +17,10 @@
     "editorBracketMatch.background": "#D5D8E03D",
     "editorBracketMatch.border": "#C792EA",
 
-    "editorIndentGuide.background": "#2A2D33",
-    "editorIndentGuide.background1": "#2A2D33",
-    "editorIndentGuide.activeBackground": "#4A4D55",
-    "editorIndentGuide.activeBackground1": "#4A4D55",
+    "editorIndentGuide.background": "#3A3D44",
+    "editorIndentGuide.background1": "#3A3D44",
+    "editorIndentGuide.activeBackground": "#808080",
+    "editorIndentGuide.activeBackground1": "#808080",
 
     "editorBracketPairGuide.background1": "#C792EA80",
     "editorBracketPairGuide.background2": "#FFD70080",
@@ -131,12 +131,12 @@
       "settings": { "foreground": "#82AAFF", "fontStyle": "bold" }
     },
     {
-      "name": "Vue Directive Attribute Name (full form: v-bind / v-on / v-slot)",
+      "name": "Vue Directive Attribute Name (desctiption in :desctiption, click-left in @click-left)",
       "scope": [
         "entity.other.attribute-name.html.vue",
         "text.html.vue entity.other.attribute-name.html.vue"
       ],
-      "settings": { "foreground": "#9CDCFE" }
+      "settings": { "foreground": "#DCDCAA", "fontStyle": "bold" }
     },
     {
       "name": "Vue Directive Value Quotes",
@@ -362,6 +362,22 @@
         "support.type.vendored.property-name.scss"
       ],
       "settings": { "foreground": "#82D99F", "fontStyle": "italic" }
+    },
+    {
+      "name": "SCSS/Less Nested Property",
+      "scope": [
+        "meta.property-name.scss",
+        "meta.property-name.less"
+      ],
+      "settings": { "foreground": "#82D99F" }
+    },
+    {
+      "name": "SCSS/Less Nested Selector inside &",
+      "scope": [
+        "meta.selector.scss meta.selector.scss",
+        "meta.selector.less meta.selector.less"
+      ],
+      "settings": { "foreground": "#FFB86C" }
     },
 
     {
