@@ -33,7 +33,23 @@
     "editorGroupHeader.tabsBorder": "#E0E2F217",
     "list.activeSelectionBackground": "#E0E2F214",
     "list.inactiveSelectionBackground": "#E0E2F20d",
-    "list.hoverBackground": "#E0E2F20d"
+    "list.hoverBackground": "#E0E2F20d",
+
+    "chat.requestBackground": "#222427",
+    "chat.requestForeground": "#D1D3DB",
+    "chat.responseBackground": "#1A1B1D",
+    "chat.responseForeground": "#D1D3DB",
+    "chat.slashCommandBackground": "#3579FF47",
+    "chat.slashCommandForeground": "#82AAFF",
+
+    "commandCenter.background": "#222427",
+    "commandCenter.foreground": "#F5F9FE",
+    "commandCenter.border": "#3A3D41",
+
+    "quickInput.background": "#222427",
+    "quickInput.foreground": "#D1D3DB",
+
+    "welcomePage.background": "#1A1B1D"
   },
 
   "tokenColors": [
