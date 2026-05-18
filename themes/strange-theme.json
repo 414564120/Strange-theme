@@ -197,7 +197,7 @@
         "text.html.vue entity.other.attribute-name.html",
         "text.html.basic entity.other.attribute-name"
       ],
-      "settings": { "foreground": "#B0A896" }
+      "settings": { "foreground": "#C896E0" }
     },
     {
       "name": "HTML Attribute Values (static)",
