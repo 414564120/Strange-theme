@@ -3,7 +3,7 @@
   "displayName": "Strange Theme",
   "description": "A dark theme for VS Code & Cursor with Vue SFC section differentiation and semantic highlighting.",
   "version": "0.0.2",
-  "publisher": "sazha",
+  "publisher": "Oelyn",
   "icon": "icons/icon.png",
   "engines": {
     "vscode": "^1.80.0"
