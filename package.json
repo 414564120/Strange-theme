@@ -19,6 +19,11 @@
     "theme"
   ],
   "contributes": {
+    "configurationDefaults": {
+      "editor.guides.bracketPairs": "active",
+      "editor.bracketPairColorization.enabled": true,
+      "editor.guides.indentation": true
+    },
     "themes": [
       {
         "label": "Strange Theme",

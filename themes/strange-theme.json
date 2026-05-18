@@ -104,101 +104,77 @@
     },
 
     {
-      "name": "Vue Directive Keywords: v-if v-model v-for v-show etc.",
+      "name": "Vue Directive Keywords: v-if v-for v-show v-model etc.",
       "scope": [
         "keyword.control.directive.vue",
-        "text.html.vue keyword.control.directive.vue"
+        "keyword.control.conditional.vue",
+        "keyword.control.loop.vue",
+        "text.html.vue keyword.control.directive.vue",
+        "text.html.vue keyword.control.conditional.vue",
+        "text.html.vue keyword.control.loop.vue"
       ],
       "settings": { "foreground": "#FF5577", "fontStyle": "bold" }
     },
     {
-      "name": "Vue Bind Attributes: :prop :class :columns etc.",
-      "scope": [
-        "entity.other.attribute-name.bind.vue",
-        "entity.other.attribute-name.bind.html",
-        "text.html.vue entity.other.attribute-name.bind.vue"
-      ],
+      "name": "Vue Bind Shorthand Punctuation :",
+      "scope": "punctuation.attribute-shorthand.bind.html.vue",
       "settings": { "foreground": "#C792EA", "fontStyle": "bold" }
     },
     {
-      "name": "Vue Event Attributes: @click @confirm @cancel etc.",
-      "scope": [
-        "entity.other.attribute-name.event.vue",
-        "entity.other.attribute-name.event.html",
-        "text.html.vue entity.other.attribute-name.event.vue"
-      ],
+      "name": "Vue Event Shorthand Punctuation @",
+      "scope": "punctuation.attribute-shorthand.event.html.vue",
       "settings": { "foreground": "#FFD700", "fontStyle": "bold" }
     },
     {
-      "name": "Vue Slot: v-slot / #slot",
-      "scope": [
-        "entity.other.attribute-name.slot.vue",
-        "text.html.vue entity.other.attribute-name.slot.vue"
-      ],
+      "name": "Vue Slot Shorthand Punctuation #",
+      "scope": "punctuation.attribute-shorthand.slot.html.vue",
       "settings": { "foreground": "#82AAFF", "fontStyle": "bold" }
     },
-
     {
-      "name": "Vue Directive/Event Value Quotes",
+      "name": "Vue Directive Attribute Name (full form: v-bind / v-on / v-slot)",
       "scope": [
-        "meta.attribute.directive.vue string.quoted",
-        "meta.attribute.bind.vue string.quoted",
-        "meta.attribute.event.vue string.quoted",
-        "text.html.vue meta.attribute.directive.vue string.quoted",
-        "text.html.vue meta.attribute.bind.vue string.quoted",
-        "text.html.vue meta.attribute.event.vue string.quoted"
+        "entity.other.attribute-name.html.vue",
+        "text.html.vue entity.other.attribute-name.html.vue"
+      ],
+      "settings": { "foreground": "#9CDCFE" }
+    },
+    {
+      "name": "Vue Directive Value Quotes",
+      "scope": [
+        "meta.attribute.directive.vue punctuation.definition.string.begin.html.vue",
+        "meta.attribute.directive.vue punctuation.definition.string.end.html.vue",
+        "text.html.vue punctuation.definition.string.begin.html.vue",
+        "text.html.vue punctuation.definition.string.end.html.vue"
       ],
       "settings": { "foreground": "#0892dd", "fontStyle": "bold" }
     },
     {
-      "name": "Vue Directive Expression Inside v-if/v-for Values",
+      "name": "Vue Directive Expression Inside Values",
       "scope": [
-        "meta.attribute.directive.vue meta.embedded.expression",
-        "text.html.vue meta.attribute.directive.vue meta.embedded.expression",
-        "meta.attribute.directive.vue source.js.embedded",
-        "text.html.vue meta.attribute.directive.vue source.js.embedded"
-      ],
-      "settings": { "foreground": "#DCDCAA" }
-    },
-    {
-      "name": "Vue Bind Expression Inside :prop Values",
-      "scope": [
-        "meta.attribute.bind.vue meta.embedded.expression",
-        "text.html.vue meta.attribute.bind.vue meta.embedded.expression",
-        "meta.attribute.bind.vue source.js.embedded",
-        "text.html.vue meta.attribute.bind.vue source.js.embedded"
+        "source.ts.embedded.html.vue",
+        "source.js.embedded.html.vue",
+        "text.html.vue source.ts.embedded.html.vue",
+        "text.html.vue source.js.embedded.html.vue"
       ],
       "settings": { "foreground": "#82D99F" }
-    },
-    {
-      "name": "Vue Event Expression Inside @click Values",
-      "scope": [
-        "meta.attribute.event.vue meta.embedded.expression",
-        "text.html.vue meta.attribute.event.vue meta.embedded.expression",
-        "meta.attribute.event.vue source.js.embedded",
-        "text.html.vue meta.attribute.event.vue source.js.embedded"
-      ],
-      "settings": { "foreground": "#FFB86C" }
     },
 
     {
       "name": "Vue Mustache Braces {{ }}",
       "scope": [
-        "punctuation.definition.interpolation.begin.vue",
-        "punctuation.definition.interpolation.end.vue",
+        "punctuation.definition.interpolation.begin.html.vue",
+        "punctuation.definition.interpolation.end.html.vue",
         "punctuation.section.embedded.begin.vue",
         "punctuation.section.embedded.end.vue",
-        "text.html.vue punctuation.definition.interpolation.begin.vue",
-        "text.html.vue punctuation.definition.interpolation.end.vue",
-        "text.html.vue punctuation.section.embedded.begin.vue",
-        "text.html.vue punctuation.section.embedded.end.vue"
+        "text.html.vue punctuation.definition.interpolation.begin.html.vue",
+        "text.html.vue punctuation.definition.interpolation.end.html.vue"
       ],
       "settings": { "foreground": "#0892dd", "fontStyle": "bold" }
     },
     {
       "name": "Vue Mustache Expression Inside {{ }}",
       "scope": [
-        "source.vue expression.embedded.vue",
+        "expression.embedded.vue",
         "text.html.vue expression.embedded.vue"
       ],
       "settings": { "foreground": "#0da860", "fontStyle": "bold" }
