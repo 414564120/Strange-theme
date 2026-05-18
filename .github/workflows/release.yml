@@ -50,3 +50,23 @@ jobs:
           name: "v${{ env.VERSION }}"
           body_path: release-notes.md
           files: "*.vsix"
+
+      - name: Publish to VS Code Marketplace
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+        run: |
+          if [ -z "$VSCE_PAT" ]; then
+            echo "VSCE_PAT not set — skipping VS Code Marketplace publish"
+          else
+            npx @vscode/vsce publish --packagePath "strange-theme-${{ env.VERSION }}.vsix" -p "$VSCE_PAT"
+          fi
+
+      - name: Publish to Open VSX (Cursor / Trae)
+        env:
+          OPEN_VSX_TOKEN: ${{ secrets.OPEN_VSX_TOKEN }}
+        run: |
+          if [ -z "$OPEN_VSX_TOKEN" ]; then
+            echo "OPEN_VSX_TOKEN not set — skipping Open VSX publish"
+          else
+            npx ovsx publish "strange-theme-${{ env.VERSION }}.vsix" -p "$OPEN_VSX_TOKEN"
+          fi
