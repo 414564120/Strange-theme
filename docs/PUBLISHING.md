@@ -7,10 +7,12 @@ The extension ID is permanently derived from `publisher.name`: `Oelyn.strange-th
 ### VS Code Marketplace
 
 1. Sign in at https://marketplace.visualstudio.com/manage.
-2. Confirm that the publisher ID is exactly `Oelyn`. Create it only if it does not already exist.
-3. In Azure DevOps, open https://dev.azure.com/, then **User settings > Personal access tokens**.
-4. Create a token for **All accessible organizations** with **Marketplace > Manage** scope. Use the shortest practical expiration and record the expiry date.
-5. In this GitHub repository, open **Settings > Secrets and variables > Actions** and create `VSCE_PAT`.
+2. Select the existing publisher with ID `Oelyn`.
+3. Choose **New extension > Visual Studio Code**.
+4. Upload the reviewed `strange-theme-<version>.vsix` file.
+5. Wait until the version is public before running the GitHub Release workflow.
+
+Manual upload is free and does not require an Azure subscription or a marketplace PAT.
 
 Microsoft's publishing documentation: https://code.visualstudio.com/api/working-with-extensions/publishing-extension
 
@@ -31,13 +33,15 @@ Never commit either token or paste it into an Issue, PR, workflow file, screensh
 2. Use a version greater than every version already published in both registries.
 3. Merge only after the `Validate` workflow packages the VSIX successfully.
 4. Install the CI artifact in a clean editor profile and inspect all `test-fixtures/` files.
+5. Upload that reviewed version to the VS Code Marketplace and wait for it to become public.
 
 ## Release
 
 1. Open the repository's **Actions** tab.
 2. Select **Release**, choose **Run workflow**, and enter the exact version from `package.json`.
-3. The workflow validates both secrets, builds one VSIX, publishes it to both registries, then creates the Git tag and GitHub Release.
-4. If either registry rejects the package, fix the cause and rerun only after checking whether that version was partially published. Never overwrite or reuse a published version.
+3. Check **Confirm this version is already public on the VS Code Marketplace**.
+4. The workflow validates the Open VSX token, builds the VSIX, publishes it to Open VSX, then creates the Git tag and GitHub Release.
+5. If Open VSX rejects the package, fix the cause and rerun only after checking whether that version was partially published. Never overwrite or reuse a published version.
 
 ## Cursor, Trae, and other editors
 

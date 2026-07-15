@@ -11,15 +11,16 @@ Prepare Strange Theme for a reviewed `0.0.7` release to the VS Code Marketplace 
 - Remove extension-wide configuration defaults; document guide settings as optional user preferences.
 - Validate the manifest, theme files, color formats, icon, fixtures, and requested release version with deterministic code.
 - Run validation and VSIX packaging on pull requests and `main`.
-- Publish only from a manual workflow after both marketplace credentials and the committed version are validated.
+- Publish to Open VSX only from a manual workflow after the VS Code Marketplace upload and committed version are validated.
 
 ## Release Flow
 
 1. Review and merge a version bump through a pull request.
 2. Run the `Release` workflow with the same version as `package.json`.
-3. Validate secrets, version, tag availability, package metadata, and theme data.
-4. Build one VSIX and publish it to both registries.
-5. Create the Git tag and GitHub Release only after both registry publications succeed.
+3. Manually upload the reviewed VSIX to the VS Code Marketplace and wait for it to become public.
+4. Validate the Open VSX secret, version, tag availability, package metadata, and theme data.
+5. Build and publish the Open VSX package.
+6. Create the Git tag and GitHub Release after Open VSX publication succeeds.
 
 ## Verification
 

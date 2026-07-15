@@ -7,6 +7,11 @@ on:
         description: Version already committed in package.json
         required: true
         default: 0.0.7
+      vscode_marketplace_published:
+        description: Confirm this version is already public on the VS Code Marketplace
+        required: true
+        type: boolean
+        default: false
 
 concurrency:
   group: release
@@ -20,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       VERSION: ${{ inputs.version }}
-      VSCE_PAT: ${{ secrets.VSCE_PAT }}
+      VSCODE_MARKETPLACE_PUBLISHED: ${{ inputs.vscode_marketplace_published }}
       OPEN_VSX_TOKEN: ${{ secrets.OPEN_VSX_TOKEN }}
     steps:
       - uses: actions/checkout@v4
@@ -36,15 +41,13 @@ jobs:
         run: |
           set -euo pipefail
           [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "Invalid version: $VERSION"; exit 1; }
-          [ -n "$VSCE_PAT" ] || { echo "Missing VSCE_PAT repository secret"; exit 1; }
+          [ "$VSCODE_MARKETPLACE_PUBLISHED" = "true" ] || { echo "Publish this version to the VS Code Marketplace before running this workflow"; exit 1; }
           [ -n "$OPEN_VSX_TOKEN" ] || { echo "Missing OPEN_VSX_TOKEN repository secret"; exit 1; }
           ! git rev-parse "v$VERSION" >/dev/null 2>&1 || { echo "Tag v$VERSION already exists"; exit 1; }
       - run: pnpm install --frozen-lockfile --ignore-scripts
       - run: pnpm validate -- --version "$VERSION"
       - name: Package VSIX
         run: pnpm package --out "strange-theme-$VERSION.vsix"
-      - name: Publish to VS Code Marketplace
-        run: pnpm exec vsce publish --packagePath "strange-theme-$VERSION.vsix" -p "$VSCE_PAT"
       - name: Publish to Open VSX
         run: pnpm exec ovsx publish "strange-theme-$VERSION.vsix" -p "$OPEN_VSX_TOKEN"
       - name: Create tag and GitHub release
