@@ -3,4 +3,12 @@ pnpm-lock.yaml
 *.vsix
 .gitignore
 .github/
+.claude/
+docs/
+scripts/
+test-fixtures/
 design.md
+CLAUDE.md
+preview.html
+release-notes.md
+icons/README.md

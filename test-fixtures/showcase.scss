@@ -1,0 +1,11 @@
+$spacing: 1rem;
+
+#app {
+  display: grid;
+  gap: $spacing;
+
+  &::before {
+    content: "Strange Theme";
+    opacity: 0.8;
+  }
+}

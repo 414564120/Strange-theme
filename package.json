@@ -2,9 +2,19 @@
   "name": "strange-theme",
   "displayName": "Strange Theme",
   "description": "A dark theme for VS Code & Cursor with Vue SFC section differentiation and semantic highlighting.",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "publisher": "Oelyn",
+  "packageManager": "pnpm@11.1.2",
+  "license": "MIT",
   "icon": "icons/icon.png",
+  "homepage": "https://github.com/414564120/Strange-theme#readme",
+  "bugs": {
+    "url": "https://github.com/414564120/Strange-theme/issues"
+  },
+  "galleryBanner": {
+    "color": "#1A1B1D",
+    "theme": "dark"
+  },
   "engines": {
     "vscode": "^1.80.0"
   },
@@ -19,13 +29,6 @@
     "theme"
   ],
   "contributes": {
-    "configurationDefaults": {
-      "editor.guides.bracketPairs": "active",
-      "editor.bracketPairColorization.enabled": true,
-      "editor.guides.indentation": true,
-      "editor.guides.highlightActiveIndentGuide": true,
-      "editor.guides.highlightActiveBracketPair": true
-    },
     "themes": [
       {
         "label": "Strange Theme",
@@ -37,5 +40,13 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/414564120/Strange-theme.git"
+  },
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "3.9.2",
+    "ovsx": "1.0.2"
   }
 }

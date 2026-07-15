@@ -1,72 +1,60 @@
-name: Auto Release
+name: Release
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version already committed in package.json
+        required: true
+        default: 0.0.7
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+permissions:
+  contents: write
 
 jobs:
   release:
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[skip ci]')"
-    permissions:
-      contents: write
-
+    env:
+      VERSION: ${{ inputs.version }}
+      VSCE_PAT: ${{ secrets.VSCE_PAT }}
+      OPEN_VSX_TOKEN: ${{ secrets.OPEN_VSX_TOKEN }}
     steps:
       - uses: actions/checkout@v4
-
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
-
-      - name: Bump patch version
+          node-version: "22"
+          cache: pnpm
+      - name: Validate release inputs
+        shell: bash
         run: |
-          CURRENT=$(node -p "require('./package.json').version")
-          NEW=$(node -p "const v=require('./package.json').version.split('.');v[2]=parseInt(v[2])+1;v.join('.')")
-          node -e "let f=require('./package.json');f.version='$NEW';require('fs').writeFileSync('package.json',JSON.stringify(f,null,2)+'\n')"
-          echo "VERSION=$NEW" >> $GITHUB_ENV
-          echo "Bumped $CURRENT -> $NEW"
-
-      - name: Commit version bump
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add package.json
-          git commit -m "chore: bump version to ${{ env.VERSION }} [skip ci]"
-          git push
-
-      - name: Build VSIX
-        run: npx @vscode/vsce package -o "strange-theme-${{ env.VERSION }}.vsix"
-
-      - name: Create Git Tag
-        run: |
-          git tag "v${{ env.VERSION }}"
-          git push origin "v${{ env.VERSION }}"
-
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: "v${{ env.VERSION }}"
-          name: "v${{ env.VERSION }}"
-          body_path: release-notes.md
-          files: "*.vsix"
-
+          set -euo pipefail
+          [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "Invalid version: $VERSION"; exit 1; }
+          [ -n "$VSCE_PAT" ] || { echo "Missing VSCE_PAT repository secret"; exit 1; }
+          [ -n "$OPEN_VSX_TOKEN" ] || { echo "Missing OPEN_VSX_TOKEN repository secret"; exit 1; }
+          ! git rev-parse "v$VERSION" >/dev/null 2>&1 || { echo "Tag v$VERSION already exists"; exit 1; }
+      - run: pnpm install --frozen-lockfile --ignore-scripts
+      - run: pnpm validate -- --version "$VERSION"
+      - name: Package VSIX
+        run: pnpm package --out "strange-theme-$VERSION.vsix"
       - name: Publish to VS Code Marketplace
+        run: pnpm exec vsce publish --packagePath "strange-theme-$VERSION.vsix" -p "$VSCE_PAT"
+      - name: Publish to Open VSX
+        run: pnpm exec ovsx publish "strange-theme-$VERSION.vsix" -p "$OPEN_VSX_TOKEN"
+      - name: Create tag and GitHub release
         env:
-          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
         run: |
-          if [ -z "$VSCE_PAT" ]; then
-            echo "VSCE_PAT not set — skipping VS Code Marketplace publish"
-          else
-            npx @vscode/vsce publish --packagePath "strange-theme-${{ env.VERSION }}.vsix" -p "$VSCE_PAT"
-          fi
-
-      - name: Publish to Open VSX (Cursor / Trae)
-        env:
-          OPEN_VSX_TOKEN: ${{ secrets.OPEN_VSX_TOKEN }}
-        run: |
-          if [ -z "$OPEN_VSX_TOKEN" ]; then
-            echo "OPEN_VSX_TOKEN not set — skipping Open VSX publish"
-          else
-            npx ovsx publish "strange-theme-${{ env.VERSION }}.vsix" -p "$OPEN_VSX_TOKEN"
-          fi
+          set -euo pipefail
+          git tag "v$VERSION"
+          git push origin "v$VERSION"
+          gh release create "v$VERSION" "strange-theme-$VERSION.vsix" \
+            --title "v$VERSION" \
+            --notes-file release-notes.md

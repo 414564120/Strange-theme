@@ -1,0 +1,6 @@
+{
+  "name": "Strange Theme",
+  "version": "0.0.7",
+  "enabled": true,
+  "languages": ["vue", "typescript", "scss"]
+}

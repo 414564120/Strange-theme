@@ -1,99 +1,92 @@
 # Strange Theme
 
-专为 Vue SFC 开发优化的暗色主题，支持 **Trae**、**VS Code** 和 **Cursor** 编辑器。在保持暗色舒适观感的同时，通过三区块分层着色和语义高亮，让 Vue 模板中的逻辑代码与普通 HTML 一眼可辨。
+A warm dark theme for Vue SFC, TypeScript, JavaScript, CSS, JSON, and Markdown. It is built for VS Code-compatible editors and makes Vue template logic easier to distinguish from static HTML.
 
-## 核心设计
+Strange Theme 是一款面向 Vue 开发的暖色暗色主题，通过分区颜色、Vue 指令高亮和语义高亮提升单文件组件的可读性。
 
-三个顶层标签用不同颜色标识，打开 `.vue` 文件立刻知道光标在哪个区：
+![Strange Theme syntax preview](media/preview.png)
 
-- `<template>` — `#F2858C` 暖橙粗体
-- `<script>` — `#FFD700` 金色粗体
-- `<style>` — `#21bd9e` 青绿粗体
+## Highlights
 
-### Template 内 Vue 逻辑高亮
+- Distinct `<template>`, `<script>`, and `<style>` section colors.
+- Separate colors for static attributes, Vue directives, bindings, events, and interpolations.
+- Semantic highlighting for functions, variables, parameters, properties, classes, and types.
+- Dedicated rules for CSS/SCSS, JSON, and Markdown.
+- 59 workbench colors, 60 TextMate rules, and 32 semantic token rules.
+- No runtime code, telemetry, network access, or background services.
 
-| 元素 | 示例 | 效果 |
-|------|------|------|
-| Vue 指令 | `v-if`, `v-model` | `#FF5577` 品红粗体 |
-| 动态绑定 | `:columns`, `:class` | `#C792EA` 紫色粗体 |
-| 事件绑定 | `@click`, `@confirm` | `#FFD700` 金色粗体 |
-| 指令值引号 | `"..."` | `#0892dd` 青蓝粗体 |
-| Mustache 插值 | `{{ }}` | `#0892dd` 青蓝粗体 |
-| 普通 HTML 标签 | `<div>`, `<span>` | `#569CD6` 蓝色 |
-| 普通静态属性 | `title`, `class` | `#9CDCFE` 淡蓝 |
-| 静态属性值 | `"hello"` | `#CE9178` 橙色 |
+## Compatibility
 
-### Script 内语义高亮
+| Editor | Installation | Registry |
+| --- | --- | --- |
+| Visual Studio Code | Marketplace or VSIX | VS Code Marketplace |
+| Cursor | Extension search or VSIX | Availability depends on Cursor's current catalog |
+| VSCodium / Eclipse Theia | Registry or VSIX | Open VSX |
+| Trae and other VS Code-compatible editors | VSIX | Check the editor's current extension catalog |
 
-| 类型 | 颜色 |
-|------|------|
-| 函数 / 方法 | `#FF9944` 亮橙粗体 |
-| 变量 | `#82AAFF` 柔蓝 |
-| 参数 | `#FFB86C` 暖橙斜体 |
-| 属性 | `#82D99F` 绿色 |
-| 类 | `#FFB86C` 暖橙粗体 |
-| 关键字 (`const` `let` `if` `return`) | `#C792EA` 紫色 |
-| `this` / `super` | `#FF5577` 品红粗体 |
-| `null` / `undefined` / `true` / `false` | `#FF9944` 亮橙 |
-| 模板字符串 `${}` | `#82D99F` 绿色 |
-| 装饰器 `@` | `#FFD700` 金色 |
-| 正则表达式 | `#F48CCA` 粉色 |
+The extension identifier is `Oelyn.strange-theme`.
 
-### CSS / Style 区域配色
+## Install
 
-| 类型 | 示例 | 颜色 |
-|------|------|------|
-| 类选择器 | `.my-class` | `#FFB86C` 暖橙 |
-| ID 选择器 | `#my-id` | `#FF9944` 亮橙 |
-| 标签选择器 | `div`, `span` | `#569CD6` 蓝色 |
-| 伪类 | `:hover` | `#C792EA` 紫色 |
-| 伪元素 | `::before` | `#82AAFF` 柔蓝 |
-| CSS 属性 | `color`, `display` | `#82D99F` 绿色 |
-| CSS 值 | `flex`, `block` | `#DCDCAA` 暖黄 |
-| 字符串值 | `"hello"` | `#CE9178` 橙色 |
-| 数值 + 单位 | `10px`, `1.5rem` | `#F48CCA` 粉色 |
-| CSS 变量 | `--my-var` | `#FF5577` 品红 |
-| CSS 函数 | `rgb()`, `var()` | `#FFD700` 金色 |
-| `!important` | `!important` | `#FF5577` 品红粗体 |
-| 嵌套 `&` | `&` (SCSS/Less) | `#FF9944` 亮橙粗体 |
+### From a registry
 
-### JSON 配色
+- VS Code Marketplace: search for `Strange Theme` by `Oelyn`.
+- Open VSX: search for `Strange Theme` in an Open VSX-compatible editor.
 
-| 类型 | 颜色 |
-|------|------|
-| Key 键名 | `#82AAFF` 柔蓝 |
-| String 字符串值 | `#CE9178` 橙色 |
+### From a VSIX
 
-## 配色
+1. Download the VSIX from [GitHub Releases](https://github.com/414564120/Strange-theme/releases).
+2. Open the editor's Extensions view.
+3. Choose **Install from VSIX...** and select the downloaded file.
+4. Run **Preferences: Color Theme** and select **Strange Theme**.
 
-基于 VS Dark 暗色系，覆盖 **59 条 TextMate 规则 + 32 条语义规则**：
+## Optional editor guides
 
-- 背景：`#1A1B1D`
-- 前景：`#D1D3DB`
-- 光标：`#FFFFFF`
-- 选中：`#3579FF47`
-- 当前行：`#292c34`
+Strange Theme colors bracket and indentation guides but does not change user settings during installation. Enable the guides explicitly if desired:
 
-## 安装
-
-### Trae / VS Code / Cursor
-
-1. 打包：`pnpm dlx @vscode/vsce package`
-2. 在扩展面板中，点击 `...` → `Install from VSIX`，选择生成的 `.vsix`
-3. 或在 Cursor 中：`Ctrl+Shift+P` → `Extensions: Install from VSIX`
-4. `Ctrl+Shift+P` → `Preferences: Color Theme` → 选 `Strange Theme`
-
-## 文件结构
-
+```json
+{
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.guides.indentation": true,
+  "editor.guides.highlightActiveBracketPair": true,
+  "editor.guides.highlightActiveIndentation": true
+}
 ```
-strange-theme/
-├── package.json
-├── README.md
-├── LICENSE
-├── .gitignore
-├── .vscodeignore
-├── icons/
-│   └── icon.png
-└── themes/
-    └── strange-theme.json
+
+## Vue palette
+
+| Syntax | Color |
+| --- | --- |
+| `<template>` | `#F2858C` |
+| `<script>` | `#FFD700` |
+| `<style>` | `#21BD9E` |
+| Vue directive | `#FF5577` |
+| Dynamic binding | `#C792EA` |
+| Event binding | `#FFD700` |
+| Static HTML attribute | `#C896E0` |
+| Function / method | `#FF9944` |
+| Variable | `#82AAFF` |
+| Property | `#82D99F` |
+
+## Development
+
+Requires Node.js 22 or later.
+
+```powershell
+pnpm install
+pnpm validate
+pnpm package --out strange-theme.vsix
 ```
+
+Open the files under `test-fixtures/` to review Vue, TypeScript, SCSS, JSON, and Markdown highlighting. Use **Developer: Inspect Editor Tokens and Scopes** before changing a TextMate scope.
+
+Release setup and account steps are documented in [docs/PUBLISHING.md](docs/PUBLISHING.md).
+
+## Privacy
+
+This is a declarative color theme. It executes no extension code and collects no data.
+
+## License
+
+[MIT](LICENSE)

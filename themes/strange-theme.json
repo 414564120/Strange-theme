@@ -75,7 +75,7 @@
     {
       "name": "Comments",
       "scope": ["comment", "punctuation.definition.comment"],
-      "settings": { "foreground": "#737780", "fontStyle": "italic" }
+      "settings": { "foreground": "#8A8F9A", "fontStyle": "italic" }
     },
 
     {
@@ -221,7 +221,7 @@
         "punctuation.definition.tag.begin.html",
         "punctuation.definition.tag.end.html"
       ],
-      "settings": { "foreground": "#808080" }
+      "settings": { "foreground": "#9499A3" }
     },
 
     {
@@ -591,8 +591,8 @@
     "number": "#F48CCA",
     "regexp": "#F48CCA",
     "operator": "#C792EA",
-    "comment": "#737780",
-    "comment.documentation": "#5A7A5A",
+    "comment": "#8A8F9A",
+    "comment.documentation": "#7FA37F",
     "decorator": "#FFD700",
     "label": "#D5D8E0"
   }

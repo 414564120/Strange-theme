@@ -7,7 +7,7 @@ Strange Theme 是一个 dark 主题扩展，专为 Vue SFC 开发优化，支持
 ## 文件结构
 
 ```
-F:\trae-theme/
+strange-theme/
 ├── package.json                  # 扩展清单
 ├── README.md                     # 说明文档
 ├── LICENSE                       # 许可证
@@ -23,8 +23,10 @@ F:\trae-theme/
 ## 构建与发布
 
 ```powershell
-# 打包 vsix
-pnpm dlx @vscode/vsce package
+# 安装依赖并打包 VSIX
+pnpm install
+pnpm validate
+pnpm package --out strange-theme.vsix
 
 # 安装
 # 扩展面板 → ... → Install from VSIX → 选择 .vsix 文件
@@ -67,7 +69,7 @@ git push origin main
 3. `semanticTokenColors`（Volar 语言服务器 — 语义血肉层）
 4. 用户 `settings.json` 的 `textMateRules`（最终覆盖层）
 
-### TextMate tokenColors（59 条规则）
+### TextMate tokenColors（60 条规则）
 
 | 规则 | 负责内容 | 颜色 |
 |------|---------|------|
@@ -98,7 +100,7 @@ git push origin main
 | `keyword` | `#C792EA` | 正常 | 关键字 |
 | `string` | `#82D99F` | 正常 | 字符串 |
 | `number` | `#F48CCA` | 正常 | 数字 |
-| `comment` | `#737780` | 正常 | 注释 |
+| `comment` | `#8A8F9A` | 正常 | 注释 |
 
 ### 核心设计原则
 
