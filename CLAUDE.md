@@ -26,7 +26,7 @@ strange-theme/
 # 安装依赖并打包 VSIX
 pnpm install
 pnpm validate
-pnpm package -- --out strange-theme.vsix
+pnpm package --out strange-theme.vsix
 
 # 安装
 # 扩展面板 → ... → Install from VSIX → 选择 .vsix 文件

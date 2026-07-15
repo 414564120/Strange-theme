@@ -76,7 +76,7 @@ Requires Node.js 22 or later.
 ```powershell
 pnpm install
 pnpm validate
-pnpm package -- --out strange-theme.vsix
+pnpm package --out strange-theme.vsix
 ```
 
 Open the files under `test-fixtures/` to review Vue, TypeScript, SCSS, JSON, and Markdown highlighting. Use **Developer: Inspect Editor Tokens and Scopes** before changing a TextMate scope.

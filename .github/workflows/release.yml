@@ -42,7 +42,7 @@ jobs:
       - run: pnpm install --frozen-lockfile --ignore-scripts
       - run: pnpm validate -- --version "$VERSION"
       - name: Package VSIX
-        run: pnpm package -- --out "strange-theme-$VERSION.vsix"
+        run: pnpm package --out "strange-theme-$VERSION.vsix"
       - name: Publish to VS Code Marketplace
         run: pnpm exec vsce publish --packagePath "strange-theme-$VERSION.vsix" -p "$VSCE_PAT"
       - name: Publish to Open VSX

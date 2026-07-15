@@ -24,6 +24,6 @@ Prepare Strange Theme for a reviewed `0.0.7` release to the VS Code Marketplace 
 ## Verification
 
 - `pnpm validate`
-- `pnpm package -- --out strange-theme-0.0.7.vsix`
+- `pnpm package --out strange-theme-0.0.7.vsix`
 - Inspect the VSIX file list and install it in a clean VS Code-compatible editor.
 - Open every file in `test-fixtures/` with semantic highlighting enabled.

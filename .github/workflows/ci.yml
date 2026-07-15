@@ -21,7 +21,7 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile --ignore-scripts
       - run: pnpm validate
-      - run: pnpm package -- --out strange-theme-ci.vsix
+      - run: pnpm package --out strange-theme-ci.vsix
       - uses: actions/upload-artifact@v4
         with:
           name: strange-theme-vsix
