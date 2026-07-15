@@ -60,4 +60,4 @@ jobs:
           git push origin "v$VERSION"
           gh release create "v$VERSION" "strange-theme-$VERSION.vsix" \
             --title "v$VERSION" \
-            --notes-file release-notes.md
+            --generate-notes
