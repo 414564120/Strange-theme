@@ -1,6 +1,11 @@
 node_modules/
 *.vsix
-.claude/
+
+# 本地说明与工作记录
+design.md
+preview.html
+release-notes.md
+docs/plans/
 
 # macOS
 .DS_Store
